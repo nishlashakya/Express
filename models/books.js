@@ -3,10 +3,7 @@ var mongoose = require('mongoose')
 // create schema
 
 var bookSchema = mongoose.Schema({
-	title:{
-		type: String,
-		required: true
-	},
+	title: String,
 	author: String,
 	genre: String,
 	description: String,
