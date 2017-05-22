@@ -30,4 +30,16 @@ router.get('/delete/:id', function(req, res) {
 	})
 })
 
+router.get('/update/:id', function(req, res) {
+	Book.findOne({ _id: req.params.id }, function(err, books) {
+		res.render('update', {books});
+		if(err) throw err
+	})
+})
+router.post('/update', function(req, res) {
+	Book.findOneAndUpdate({ _id: req.body._id }, { $set: req.body }, (err, doc) =>{
+		if(!err) res.redirect('/books')
+	})
+})
+
 module.exports = router;
